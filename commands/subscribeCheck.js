@@ -6,7 +6,10 @@ async function subscribeCheck(bot, chatId) {
 
     for (const channel of channels) {
       const memberStatus = await bot.getChatMember(channel.username, chatId);
-      if (!["member", "creator"].includes(memberStatus.status)) {
+
+      if (
+        !["member", "creator", "administrator"].includes(memberStatus.status)
+      ) {
         notSubscribedChannels.push(channel);
       }
     }
@@ -27,9 +30,9 @@ async function subscribeCheck(bot, chatId) {
 
       await bot.sendMessage(
         chatId,
-        `👋 *FALCON by SENATOR KONKURS ! 
-
-✅ Kanallarga obuna boling va  tasdiqlash tugmasini bosing.
+        `👋 *sdzSHAXA Konkurs! 
+        
+✅ Kanallarga obuna boling va tasdiqlash tugmasini bosing.
     *
 `,
         {

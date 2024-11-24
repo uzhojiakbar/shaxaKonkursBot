@@ -104,14 +104,17 @@ async function handleUserCommands(bot, msg) {
       break;
 
     case "📨 Referal":
-      const referalLink = `SDZShaxa_KonkursBot?start=${chatId}`;
-      bot.sendMessage(
-        chatId,
-        `Sizning referal havolangiz:\n\n[Telegram orqali taklif qilish](https://t.me/${referalLink})`,
-        {
-          parse_mode: "Markdown",
-        }
-      );
+      // Referal havola
+      const referalLink = `https://t.me/SDZShaxa_KonkursBot?start=${chatId}`;
+
+      // Xabarni formatlash
+      const message = `
+     *👉 Havolani ulashing va do'stlaringizni taklif qiling. Har bir taklif qilgan do'stingiz sizning yutish imkoniyatingizni oshiradi!\n🌟 Taklif havolasi:\n ${referalLink}* `;
+
+      // Xabarni yuborish
+      bot.sendMessage(chatId, message, {
+        parse_mode: "Markdown",
+      });
       break;
 
     case "⚙️Panel":

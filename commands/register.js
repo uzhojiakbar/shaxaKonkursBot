@@ -37,6 +37,13 @@ async function registerUser(bot, msg) {
 
       // Agar referal bo‘lsa, taklif qilgan odamni ishtirokchilar ro‘yxatiga qo‘shish
       if (referalId) {
+        if (referalId === chatId) {
+          bot.sendMessage(
+            chatId,
+            "*❌ O'zinga o'zingiz referal bo'lsa olmaysiz!*",
+            { parse_mode: "Markdown" }
+          );
+        }
         const inviter = await User.findOne({ telegramId: referalId });
         console.log(inviter);
 
